@@ -417,7 +417,12 @@ function initializeDropDownAdapter() {
 
                 // Hint View styles
                 if (index === 0) {
-                    label.style.color = new Color(255, 148, 150, 148);
+                    if (owner.style.placeholderColor) {
+                        label.style.color = owner.style.placeholderColor;
+                    } else {
+                        label.style.color = new Color(255, 148, 150, 148);
+                    }
+
                     (view as any).isHintViewIn = true;
 
                     // HACK: if there is no hint defined, make the view in the drop down virtually invisible.
